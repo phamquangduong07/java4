@@ -19,6 +19,7 @@ public class ServletNhanVien extends HttpServlet {
         listNV.add(new NhanVien("1","Nhân viên 1","Hà Nội",20,"Trưởng phòng","Nam",10000));
         listNV.add(new NhanVien("2","Nhân viên 2","Hà Nội",20,"Trưởng phòng","Nữ",10000));
     request.setAttribute("listNV",listNV);
+        System.out.println();
         request.getRequestDispatcher("/view/NhanVien.jsp").forward(request, response);
     }
 
