@@ -11,13 +11,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "ServletNhanVien", value = "/NhanVien")
+@WebServlet(name = "ServletNhanVien", value = {
+        "/hien-thi/nhan-vien",
+
+})
 public class ServletNhanVien extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<NhanVien> listNV = new ArrayList<>();
+    List<NhanVien> listNV = new ArrayList<>();
+    public ServletNhanVien(){
         listNV.add(new NhanVien("1","Nhân viên 1","Hà Nội",20,"Trưởng phòng","Nam",10000));
         listNV.add(new NhanVien("2","Nhân viên 2","Hà Nội",20,"Trưởng phòng","Nữ",10000));
+    }
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
     request.setAttribute("listNV",listNV);
         System.out.println();
         request.getRequestDispatcher("/view/NhanVien.jsp").forward(request, response);
